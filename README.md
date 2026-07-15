@@ -1,4 +1,4 @@
-# 📡 SVP — Escáner de Vulnerabilidades de Pi
+#  SVP — Escáner de Vulnerabilidades de Pi
 
 > *A portable Raspberry Pi-based device that scans nearby networks and checks devices against the global CVE vulnerability database — with local AI integration.*
 
