@@ -1,4 +1,4 @@
-# 📡 SVP — Sandbox Vulnerability Pi
+#  SVP — Sandbox Vulnerability Pi
 
 > *A portable Raspberry Pi-based network scanner that fingerprints nearby devices and cross-references them against the global CVE vulnerability database.*
 
@@ -10,7 +10,7 @@
 
 ---
 
-## 🧠 What is SVP?
+##  What is SVP?
 
 **SVP (Sandbox Vulnerability Pi)** is a self-contained, portable network security scanner built on a Raspberry Pi 4. It scans nearby networks, fingerprints discovered devices (OS, open ports, running services and their versions), and cross-references that data against the **NIST NVD CVE database** to surface known vulnerabilities with their CVSS severity scores.
 
@@ -20,7 +20,7 @@ Think of it as a pocket-sized security audit tool you can carry anywhere.
 
 ---
 
-## ⚙️ Operating Modes
+##  Operating Modes
 
 SVP can run in two fundamentally different modes. The difference comes down to one thing: **whether `wlan0` is free to scan, or busy emitting a Wi-Fi network.**
 
@@ -167,7 +167,7 @@ http://10.3.141.1:5000
 
 ---
 
-## 🔍 How Scanning Works
+##  How Scanning Works
 
 Regardless of mode, SVP follows the same pipeline once it has network access:
 
@@ -201,7 +201,7 @@ Step 5 — Report Generation
 
 ---
 
-## 🖥️ Web Dashboard
+##  Web Dashboard
 
 SVP exposes a local web dashboard accessible from any device connected to the same network (or to the Pi's AP in Mode B).
 
@@ -215,7 +215,7 @@ SVP exposes a local web dashboard accessible from any device connected to the sa
 
 ---
 
-## 🛠️ Software Stack
+##  Software Stack
 
 | Layer | Tool |
 |---|---|
@@ -228,7 +228,7 @@ SVP exposes a local web dashboard accessible from any device connected to the sa
 
 ---
 
-## 📦 Quick Start
+##  Quick Start
 
 ```bash
 git clone https://github.com/Ely-Retr0/SVP
@@ -247,7 +247,7 @@ sudo python3 svp.py --interface wlan1 --mode passive
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
 - [x] Basic network scanner
 - [x] CVE database integration (NVD API v2)
@@ -268,7 +268,7 @@ Only scan networks and devices you own or have **explicit written permission** t
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Elias Diaz Gutierrez** — [@Ely-Retr0](https://github.com/Ely-Retr0)
 
