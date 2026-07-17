@@ -331,7 +331,7 @@ Exploit manually → DVWA / Juice Shop
 ▼
 Understand what each CVE means in practice
 
-This is the closest you can get to a real engagement — without touching anything you don't own.
+This is the closest you can get to a real engagement without touching anything you don't own.
 
 ---
 
