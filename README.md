@@ -261,12 +261,13 @@ The dashboard has three sequential panels:
 SVP is designed to work alongside **[SPS — Sandbox Pentest Server](https://github.com/Ely-Retr0/SPS)** — the companion project that runs DVWA, Juice Shop, and MariaDB as Docker containers on the same Pi.
 
 Together they form a complete pentesting ecosystem:
-AP: RaspAP (10.3.141.1)
-│
-| ├── :9000  Portainer    → container management          |
-| ├── :5000  SVP          → network scanner + CVE lookup  |
-| ├── :8080  DVWA         → vulnerable target             |
-| └── :3000  Juice Shop   → vulnerable target             |
+| Port | Service | Role |
+|---|---|---|
+| — | RaspAP `10.3.141.1` | Wireless Access Point |
+| `:9000` | Portainer | Container management |
+| `:5000` | SVP | Network scanner + CVE lookup |
+| `:8080` | DVWA | Vulnerable target |
+| `:3000` | Juice Shop | Vulnerable target |
 
 ### Option A — Run SVP as a Docker container inside SPS
 
@@ -334,16 +335,12 @@ What you'll see in the dashboard:
 | 172.18.0.4 | lab-juiceshop | Node.js :3000 | Modern web app attacks |
 
 **The full practice loop:**
--SVP scan → discover services
-│
-▼
--CVE lookup → find known vulnerabilities
-│
-▼
--Exploit manually → DVWA / Juice Shop
-│
-▼
--Understand what each CVE means in practice
+| Step | Action |
+|---|---|
+| 1️⃣ | **SVP scan** → discover live hosts and open services |
+| 2️⃣ | **CVE lookup** → find known vulnerabilities for each service |
+| 3️⃣ | **Exploit manually** → practice on DVWA or Juice Shop |
+| 4️⃣ | **Understand** → learn what each CVE means in a real scenario |
 
 This is the closest you can get to a real engagement without touching anything you don't own.
 
