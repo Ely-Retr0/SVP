@@ -3,7 +3,7 @@
 > *A portable Raspberry Pi-based network scanner that fingerprints nearby devices and cross-references them against the global CVE vulnerability database.*
 
 ![Status](https://img.shields.io/badge/status-active-39ff14?style=flat-square)
-![Hardware](https://img.shields.io/badge/Raspberry%20Pi%204-C51A4A?style=flat-square&logo=raspberrypi&logoColor=white)
+![Hardware](https://img.shields.io/badge/Raspberry%20Pi%20OS%20v.4-C51A4A?style=flat-square&logo=raspberrypi&logoColor=white)
 ![OS](https://img.shields.io/badge/Debian%2012-A81D33?style=flat-square&logo=debian&logoColor=white)
 ![Python](https://img.shields.io/badge/Python%203-3776AB?style=flat-square&logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-00599C?style=flat-square)
@@ -233,7 +233,7 @@ The dashboard has three sequential panels:
 
 | Layer | Tool |
 |---|---|
-| OS | Debian 12 ARM64 |
+| OS | Raspberry Pi OS / Debian 12 ARM64 |
 | Network scanning | Nmap |
 | Monitor mode | Aircrack-ng + tcpdump |
 | CVE data | NIST NVD API v2 (no API key required) |
