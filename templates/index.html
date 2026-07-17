@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVP — Sandbox Vulnerability Pi</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1>&#9760; SVP</h1>
+    <p>Sandbox Vulnerability Pi</p>
+    <div class="badges">
+      <span class="badge">IF: {{ interface }}</span>
+      <span class="badge">MODE: {{ mode.upper() }}</span>
+      <span class="badge">TARGET: {{ scan_range }}</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ── Scan panel ── -->
+  <section class="panel">
+    <div class="panel-header">
+      <h2>[ 01 ] HOST DISCOVERY</h2>
+      <button id="btn-scan" onclick="runScan()">▶ RUN SCAN</button>
+    </div>
+    <div id="scan-status" class="status-line"></div>
+    <div id="host-list"></div>
+  </section>
+
+  <!-- ── Fingerprint panel ── -->
+  <section class="panel" id="panel-fp" style="display:none">
+    <div class="panel-header">
+      <h2>[ 02 ] FINGERPRINT</h2>
+      <span id="fp-target" class="dim"></span>
+    </div>
+    <div id="fp-status" class="status-line"></div>
+    <div id="fp-result"></div>
+  </section>
+
+  <!-- ── CVE panel ── -->
+  <section class="panel" id="panel-cve" style="display:none">
+    <div class="panel-header">
+      <h2>[ 03 ] CVE LOOKUP</h2>
+      <span id="cve-target" class="dim"></span>
+    </div>
+    <div class="search-wrap">
+      <input type="text" id="cve-query" placeholder="vendor, service, version...">
+      <button onclick="runCVE()">SEARCH NVD</button>
+    </div>
+    <div id="cve-status" class="status-line"></div>
+    <div id="cve-results"></div>
+  </section>
+</main>
+
+<footer>SVP &mdash; Sandbox Vulnerability Pi &mdash; For authorized use only</footer>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
