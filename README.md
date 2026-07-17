@@ -242,6 +242,20 @@ The dashboard has three sequential panels:
 
 ---
 
+
+## Roadmap
+
+- [x] Host discovery (active + passive)
+- [x] Service + OS fingerprinting
+- [x] CVE database integration (NVD API v2)
+- [x] Web dashboard
+- [ ] PDF report generation
+- [ ] Bluetooth scanning module
+- [ ] Scheduled / continuous scanning with alerting
+- [ ] Local AI integration for automated analysis
+
+---
+
 ## SPS Integration
 
 SVP is designed to work alongside **[SPS — Sandbox Pentest Server](https://github.com/Ely-Retr0/SPS)** — the companion project that runs DVWA, Juice Shop, and MariaDB as Docker containers on the same Pi.
@@ -335,18 +349,6 @@ This is the closest you can get to a real engagement without touching anything y
 
 ---
 
-## Roadmap
-
-- [x] Host discovery (active + passive)
-- [x] Service + OS fingerprinting
-- [x] CVE database integration (NVD API v2)
-- [x] Web dashboard
-- [ ] PDF report generation
-- [ ] Bluetooth scanning module
-- [ ] Scheduled / continuous scanning with alerting
-- [ ] Local AI integration for automated analysis
-
----
 
 ## Legal Disclaimer
 
