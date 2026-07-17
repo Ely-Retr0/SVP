@@ -242,6 +242,99 @@ The dashboard has three sequential panels:
 
 ---
 
+## SPS Integration
+
+SVP is designed to work alongside **[SPS — Sandbox Pentest Server](https://github.com/Ely-Retr0/SPS)** — the companion project that runs DVWA, Juice Shop, and MariaDB as Docker containers on the same Pi.
+
+Together they form a complete pentesting ecosystem:
+AP: RaspAP (10.3.141.1)
+│
+├── :9000  Portainer    → container management
+├── :5000  SVP          → network scanner + CVE lookup
+├── :8080  DVWA         → vulnerable target
+└── :3000  Juice Shop   → vulnerable target
+
+### Option A — Run SVP as a Docker container inside SPS
+
+The cleanest integration. SVP runs as just another container in the lab, accessible at `http://10.3.141.1:5000` alongside the other services.
+
+**1. Add this `Dockerfile` to the root of the SVP repo:**
+
+```dockerfile
+FROM python:3.11-slim
+
+RUN apt-get update && apt-get install -y \
+    nmap \
+    tcpdump \
+    aircrack-ng \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+
+EXPOSE 5000
+CMD ["python", "svp.py", "--interface", "eth0", "--scan-range", "10.3.141.0/24"]
+```
+
+**2. Build and deploy:**
+
+```bash
+docker build -t svp .
+
+docker run -d \
+  --name lab-svp \
+  --network lab-net \
+  -p 5000:5000 \
+  --cap-add NET_ADMIN \
+  --cap-add NET_RAW \
+  --restart always \
+  svp
+```
+
+> `--cap-add NET_ADMIN` and `--cap-add NET_RAW` are required so nmap can send raw packets from inside the container.
+
+---
+
+### Option B — Use SVP to scan your own SPS lab containers
+
+The most educational use case. Point SVP at the internal Docker network (`lab-net`) and scan your own vulnerable targets exactly like you would a real network.
+
+```bash
+# Get the lab-net subnet (run this on the Pi)
+docker network inspect lab-net | grep Subnet
+# Usually: 172.18.0.0/16
+
+# Scan your own lab
+sudo python svp.py --interface eth0 --scan-range 172.18.0.0/16
+```
+
+What you'll see in the dashboard:
+
+| IP | Container | Service | Use case |
+|---|---|---|---|
+| 172.18.0.2 | lab-db | MariaDB :3306 | Find DB CVEs |
+| 172.18.0.3 | lab-dvwa | Apache :80 | SQLi, XSS practice |
+| 172.18.0.4 | lab-juiceshop | Node.js :3000 | Modern web app attacks |
+
+**The full practice loop:**
+SVP scan → discover services
+│
+▼
+CVE lookup → find known vulnerabilities
+│
+▼
+Exploit manually → DVWA / Juice Shop
+│
+▼
+Understand what each CVE means in practice
+
+This is the closest you can get to a real engagement — without touching anything you don't own.
+
+---
+
 ## Roadmap
 
 - [x] Host discovery (active + passive)
