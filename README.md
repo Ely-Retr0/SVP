@@ -1,4 +1,4 @@
-# 📡 SVP — Sandbox Vulnerability Pi
+#  SVP — Sandbox Vulnerability Pi
 
 > *A portable Raspberry Pi-based network scanner that fingerprints nearby devices and cross-references them against the global CVE vulnerability database.*
 
@@ -10,7 +10,7 @@
 
 ---
 
-## 🧠 What is SVP?
+## What is SVP?
 
 **SVP (Sandbox Vulnerability Pi)** is a self-contained, portable network security scanner built on a Raspberry Pi 4. It scans nearby networks, fingerprints discovered devices (OS, open ports, running services and their versions), and cross-references that data against the **NIST NVD CVE database** to surface known vulnerabilities with their CVSS severity scores — all through a clean web dashboard accessible from your phone or laptop.
 
@@ -20,7 +20,7 @@ Think of it as a pocket-sized security audit tool you can carry anywhere.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 SVP/
@@ -39,7 +39,7 @@ SVP/
 
 ---
 
-## ⚙️ Operating Modes
+## Operating Modes
 
 SVP can run in two fundamentally different modes. The difference comes down to one thing: **whether `wlan0` is free to scan, or busy emitting a Wi-Fi network.**
 
@@ -138,7 +138,7 @@ Step 5 — Dashboard
 
 ---
 
-## 🛠️ Hardware Requirements
+## Hardware Requirements
 
 | Component | Mode A | Mode B |
 |---|---|---|
@@ -153,7 +153,7 @@ Step 5 — Dashboard
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ### 1. System dependencies
 
@@ -192,7 +192,7 @@ iwconfig wlan1
 
 ---
 
-## ▶️ Usage
+## Usage
 
 ```bash
 # Mode A — active scan via built-in adapter
@@ -217,7 +217,7 @@ sudo python3 svp.py --interface wlan1 --scan-range 192.168.1.0/24 --port 8888
 
 ---
 
-## 🖥️ Web Dashboard
+## Web Dashboard
 
 The dashboard has three sequential panels:
 
@@ -229,7 +229,7 @@ The dashboard has three sequential panels:
 
 ---
 
-## 📦 Software Stack
+## Software Stack
 
 | Layer | Tool |
 |---|---|
@@ -242,7 +242,7 @@ The dashboard has three sequential panels:
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] Host discovery (active + passive)
 - [x] Service + OS fingerprinting
@@ -255,7 +255,7 @@ The dashboard has three sequential panels:
 
 ---
 
-## ⚠️ Legal Disclaimer
+## Legal Disclaimer
 
 SVP is designed **strictly for authorized security testing and educational research**.
 
@@ -263,7 +263,7 @@ Only scan networks and devices you own or have **explicit written permission** t
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Elias Diaz Gutierrez** — [@Ely-Retr0](https://github.com/Ely-Retr0)
 
@@ -271,5 +271,5 @@ Only scan networks and devices you own or have **explicit written permission** t
 
 ---
 
-> 💡 **Want the full isolated pentesting lab this scanner pairs with?**
+>  **Want the full isolated pentesting lab this scanner pairs with?**
 > Check out **[SPS — Sandbox Pentest Server](https://github.com/Ely-Retr0/SPS)** — the companion project that turns a Raspberry Pi into a self-contained lab with DVWA, Juice Shop, and Docker orchestration.
