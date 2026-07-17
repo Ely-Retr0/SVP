@@ -263,10 +263,10 @@ SVP is designed to work alongside **[SPS — Sandbox Pentest Server](https://git
 Together they form a complete pentesting ecosystem:
 AP: RaspAP (10.3.141.1)
 │
-├── :9000  Portainer    → container management
-├── :5000  SVP          → network scanner + CVE lookup
-├── :8080  DVWA         → vulnerable target
-└── :3000  Juice Shop   → vulnerable target
+| ├── :9000  Portainer    → container management          |
+| ├── :5000  SVP          → network scanner + CVE lookup  |
+| ├── :8080  DVWA         → vulnerable target             |
+| └── :3000  Juice Shop   → vulnerable target             |
 
 ### Option A — Run SVP as a Docker container inside SPS
 
@@ -334,16 +334,16 @@ What you'll see in the dashboard:
 | 172.18.0.4 | lab-juiceshop | Node.js :3000 | Modern web app attacks |
 
 **The full practice loop:**
-SVP scan → discover services
+-SVP scan → discover services
 │
 ▼
-CVE lookup → find known vulnerabilities
+-CVE lookup → find known vulnerabilities
 │
 ▼
-Exploit manually → DVWA / Juice Shop
+-Exploit manually → DVWA / Juice Shop
 │
 ▼
-Understand what each CVE means in practice
+-Understand what each CVE means in practice
 
 This is the closest you can get to a real engagement without touching anything you don't own.
 
